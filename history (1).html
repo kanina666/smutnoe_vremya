@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Смутное время в России</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f9fa;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background: #5a4635;
+      color: #d4af37;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 32px;
+    }
+    header p {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    /* ===== Круговая инфографика ===== */
+    .circle-container {
+      position: relative;
+      width: 600px;
+      height: 600px;
+      margin: 80px auto;
+      border-radius: 50%;
+      border: 3px dashed #d4af37;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .circle-container.visible {
+      opacity: 1;
+    }
+    .circle-center {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #5a4635;
+      color: #d4af37;
+      padding: 30px;
+      border-radius: 50%;
+      text-align: center;
+      width: 200px;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .circle-item {
+      position: absolute;
+      width: 120px;
+      text-align: center;
+      font-size: 14px;
+      color: #5a4635;
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    .circle-item img {
+      width: 80px;
+      height: 100px;
+      border: 2px solid #d4af37;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+    .circle-container.visible .circle-item {
+      animation: fadeInScale 1s forwards;
+    }
+    @keyframes fadeInScale {
+      from { opacity: 0; transform: scale(0.5); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    /* Расположение по кругу */
+    .item1 { top: 0; left: 50%; transform: translate(-50%, 0); }
+    .item2 { top: 15%; left: 85%; transform: translate(-50%, 0); }
+    .item3 { top: 50%; left: 100%; transform: translate(-50%, -50%); }
+    .item4 { top: 85%; left: 85%; transform: translate(-50%, -100%); }
+    .item5 { bottom: 0; left: 50%; transform: translate(-50%, 0); }
+    .item6 { top: 85%; left: 15%; transform: translate(-50%, -100%); }
+    .item7 { top: 50%; left: 0; transform: translate(-50%, -50%); }
+    .item8 { top: 15%; left: 15%; transform: translate(-50%, 0); }
+
+    /* ===== Текстовый блок (снизу) ===== */
+    .timeline {
+      width: 90%;
+      max-width: 1000px;
+      margin: 40px auto;
+      position: relative;
+      border-left: 3px solid #d4af37;
+      padding-left: 40px;
+    }
+    .event {
+      margin-bottom: 40px;
+      position: relative;
+      background: #fff8e7;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 20px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+    }
+    .event::before {
+      content: "";
+      position: absolute;
+      left: -11px;
+      top: 25px;
+      width: 20px;
+      height: 20px;
+      background: #d4af37;
+      border-radius: 50%;
+    }
+    .event img {
+      width: 120px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 2px solid #d4af37;
+    }
+    .event h2 {
+      margin: 0;
+      font-size: 20px;
+      color: #5a4635;
+    }
+    .event span {
+      display: block;
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 8px;
+    }
+    .event p {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    footer {
+      background: #5a4635;
+      color: #d4af37;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Смутное время в России</h1>
+    <p>Хронология событий и исторические личности</p>
+  </header>
+
+  <!-- Круговая инфографика -->
+  <div class="circle-container" id="circle">
+    <div class="circle-center">Смутное время<br>(1598–1613)</div>
+    <div class="circle-item item1" style="animation-delay: 0.2s">
+      <img src="https://cdn.monetnik.ru/storage/market-lot/40/23/248340/918576_mainViewLot_2x.jpg" alt="Фёдор I">
+      <p>Фёдор I</p>
+    </div>
+    <div class="circle-item item2" style="animation-delay: 0.6s">
+      <img src="https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_6862f8bf2d888e15552ea8de_6862f961147ab6159470c531/scale_1200" alt="Годунов">
+      <p>Борис Годунов</p>
+    </div>
+    <div class="circle-item item3" style="animation-delay: 1s">
+      <img src="https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_660823ac3c551e6635af9e46_668fc8914c20c57c7637b73a/scale_1200" alt="Лжедмитрий I">
+      <p>Лжедмитрий I</p>
+    </div>
+    <div class="circle-item item4" style="animation-delay: 1.4s">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Vasili_IV_of_Russia.PNG" alt="Шуйский">
+      <p>Василий Шуйский</p>
+    </div>
+    <div class="circle-item item5" style="animation-delay: 1.8s">
+      <img src="https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_6880bba78c5df0522762373d_6880becbac422d50db8d33b3/scale_1200" alt="Минин и Пожарский">
+      <p>Минин и Пожарский</p>
+    </div>
+    <div class="circle-item item6" style="animation-delay: 2.2s">
+      <img src="https://i.pinimg.com/736x/73/2e/aa/732eaa3209884597b5e84545176073ad.jpg" alt="Романов">
+      <p>Михаил Романов</p>
+    </div>
+  </div>
+
+  <!-- Подробный текст (как раньше) -->
+  <div class="timeline">
+    <div class="event">
+      <img src="https://cdn.monetnik.ru/storage/market-lot/40/23/248340/918576_mainViewLot_2x.jpg" alt="Фёдор I">
+      <div>
+        <h2>Фёдор I Иоаннович</h2>
+        <span>(1557–1598)</span>
+        <p>Последний царь из династии Рюриковичей. Его слабое здоровье и отсутствие наследников привели к кризису престолонаследия, что стало одной из причин Смутного времени.</p>
+      </div>
+    </div>
+    <div class="event">
+      <img src="https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_6862f8bf2d888e15552ea8de_6862f961147ab6159470c531/scale_1200" alt="Борис Годунов">
+      <div>
+        <h2>Борис Годунов</h2>
+        <span>(1552–1605)</span>
+        <p>Был избран Земским собором. Его правление ознаменовалось голодом 1601–1603 гг., усилившим социальные потрясения. Его смерть вызвала борьбу за власть.</p>
+      </div>
+    </div>
+    <div class="event">
+      <img src="https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_660823ac3c551e6635af9e46_668fc8914c20c57c7637b73a/scale_1200" alt="Лжедмитрий I">
+      <div>
+        <h2>Лжедмитрий I</h2>
+        <span>(?-1606)</span>
+        <p>Самозванец, выдававший себя за сына Ивана Грозного. При поддержке Польши захватил власть, но вскоре был убит в результате заговора.</p>
+      </div>
+    </div>
+    <div class="event">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Vasili_IV_of_Russia.PNG" alt="Василий Шуйский">
+      <div>
+        <h2>Василий Шуйский</h2>
+        <span>(1552–1612)</span>
+        <p>Царь с 1606 по 1610 гг. Был свергнут в результате восстания и вмешательства иностранных держав. Его правление ослабило государство.</p>
+      </div>
+    </div>
+    <div class="event">
+      <img src="https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_6880bba78c5df0522762373d_6880becbac422d50db8d33b3/scale_1200" alt="Минин и Пожарский">
+      <div>
+        <h2>Кузьма Минин и Дмитрий Пожарский</h2>
+        <span>(1611–1612)</span>
+        <p>Организовали Второе ополчение, собрав народные силы для освобождения Москвы от польских интервентов. Их победа стала символом национального единства.</p>
+      </div>
+    </div>
+    <div class="event">
+      <img src="https://i.pinimg.com/736x/73/2e/aa/732eaa3209884597b5e84545176073ad.jpg" alt="Михаил Романов">
+      <div>
+        <h2>Михаил Фёдорович Романов</h2>
+        <span>(1596–1645)</span>
+        <p>Избран царём Земским собором в 1613 году. Его воцарение положило конец Смутному времени и стало началом правления династии Романовых.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Практическое задание — инфографика по Смутному времени</p>
+  </footer>
+
+  <script>
+    // Плавное появление круга при скролле
+    document.addEventListener("DOMContentLoaded", () => {
+      const circle = document.getElementById("circle");
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            circle.classList.add("visible");
+          }
+        });
+      }, { threshold: 0.3 });
+      observer.observe(circle);
+    });
+  </script>
+</body>
+</html>
